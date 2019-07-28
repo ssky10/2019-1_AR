@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Debug
+*.pdb
+*.ilk
+*/Debug/
+*/*/Debug/
+*/*/*/Debug/
+
+# etc
+*.hwp
