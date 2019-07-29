@@ -104,14 +104,14 @@
 
 
 ## AR_HW2
-- SHIF알고리즘 keypoints 추출
+- ### SHIF알고리즘 keypoints 추출
    ![image](https://user-images.githubusercontent.com/7812961/62015787-8f3ac300-b1e9-11e9-9c54-46842be98d9a.png)
 
-- 서로 다른 이미지 간의 keypoint 매칭 결과
+- ### 서로 다른 이미지 간의 keypoint 매칭 결과
    ![image](https://user-images.githubusercontent.com/7812961/62015848-cc9f5080-b1e9-11e9-9839-c8f07ef543d2.png)
 
-- 매칭 결과를 이용한 각 이미지의 호모그라피 결과
+- ### 매칭 결과를 이용한 각 이미지의 호모그라피 결과
    ![image](https://user-images.githubusercontent.com/7812961/62015927-1ee07180-b1ea-11e9-98fb-63ba045f75cb.png)
 
-- 호모그라피를 이용하여 파노라마 생성
+- ### 호모그라피를 이용하여 파노라마 생성
    ![image](https://user-images.githubusercontent.com/7812961/62015980-53ecc400-b1ea-11e9-9f20-a5c7892b7423.png)
