@@ -46,33 +46,26 @@ int main(int argc, char** argv)
 		vector<DMatch> matches, Mo2c, Mc2o;
 		matcher.match(objDesc, camDesc, Mo2c);
 		matcher.match(camDesc, objDesc, Mc2o);
-		vector<DMatch> *fromM, *toM;
-		if (Mo2c.size() > Mc2o.size()) {
-			fromM = &Mc2o;
-			toM = &Mo2c;
-		}
-		else {
-			fromM = &Mo2c;
-			toM = &Mc2o;
-		}
-		for (int i = 0; i < (*fromM).size(); i++)
+
+		for (int i = 0; i < Mc2o.size(); i++)
 		{
-			if ((*toM)[(*fromM)[i].trainIdx].trainIdx == i) {
-				matches.push_back((*fromM)[i]);
+			if (Mo2c[Mc2o[i].trainIdx].trainIdx == i) {
+				matches.push_back(Mc2o[i]);
 			}
 		}
 
-		from.clear(), to.clear();
-		for (int i = 0; i < matches.size(); i++) {
-			from.push_back(objkps[matches[i].queryIdx].pt);
-			to.push_back(camkps[matches[i].trainIdx].pt);
-		}
+		if (matches.size() > 100) {
 
-		if (matches.size() > 50) {
+			from.clear(), to.clear();
+			for (int i = 0; i < matches.size(); i++) {
+				from.push_back(objkps[matches[i].trainIdx].pt);
+				to.push_back(camkps[matches[i].queryIdx].pt);
+			}
+
 			Mat inliner;
 			Mat Ho2c = findHomography(from, to, RANSAC, 3.0, inliner);
 
-			if (countNonZero(inliner) > 500) {
+			if (countNonZero(inliner) > 100) {
 				vidio >> videoImg;
 				Mat warpedImg, mask;
 				Mat Hv2c = Ho2c * Hv2o;
