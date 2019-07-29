@@ -38,5 +38,9 @@
 */*/Debug/
 */*/*/Debug/
 
+#.vs
+*/.vs
+
 # etc
 *.hwp
+opencv_world401d.dll
